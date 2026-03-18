@@ -1,0 +1,91 @@
+
+        :root {            
+            --c-1: #002A4E;
+            --c-2: #009CDE;
+             --c-99: #FFFFFF;
+            --c-100: #000000;
+            --text-grey: #777777;
+            --bg-white: #ffffff;
+            --p-f: "Montserrat", sans-serif;
+            --s-f: "Montserrat", sans-serif;
+             /* Font size */
+ --f-s-0: max(11px,min(11px,.7rem)); /* 11px */
+ --f-s-1: max(12px,min(12px,.8rem)); /* 12px */
+ --f-s-2: max(14px,min(14px,1.2rem)); /* 14px */
+ --f-s-3: max(16px,min(16px,1.6rem)); /* 16px */
+ --f-s-4: max(18px,min(18px,1.8rem)); /* 18px */
+ --f-s-5: max(20px,min(20px,2rem)); /* 20px */
+ --f-s-6: max(20px,min(24px,2.2rem)); /* 24px */
+ --f-s-7: max(25px,min(34px,3.4rem)); /* 34px */
+ --f-s-8: max(30px,min(40px,3.7rem)); /* 40px */
+ --f-s-9: max(35px,min(50px,4rem)); /* 50px */
+ --f-s-10: max(40px,min(70px,5.5rem)); /* 70px */
+ --f-s-11: max(35px,min(64px,4rem)); /* 64px */
+ --f-s-12: max(40px, min(90px, 7rem));
+ --body-font: max(16px,min(16px,1.6rem));
+ --f-w-1: 100;
+ --f-w-2: 200;
+ --f-w-3: 300;
+ --f-w-4: 400;
+ --f-w-5: 500;
+ --f-w-6: 600;
+ --f-w-7: 700;
+ --f-w-b: bold;
+ --f-w-n: normal;
+     --txt-t: transparent;
+    --bg-t: transparent;    
+
+   
+     
+
+
+    --general-font-size: 50px;
+    --sp: 0px;
+    --l-h-1: 20px;
+    --l-h-2: 24px;
+    --l-h-3: 28px;
+    --l-h-4: 32px;
+    --l-h-n: normal;
+    --fixedheight: calc(100vh - 0px);
+    --b-r-1: 4px;
+    --b-r-2: 12px;
+    --b-r-3: 24px;
+    --size: 850;
+
+    --header-bg: rgb(0,0,0);
+    --opacity-header-1: 0.4;
+    --opacity-header-2: 1;
+
+    --agent-overlay: rgba(0, 0, 0, 0.4);
+    --map-background: #ffffff;
+    /*--avm-bg: #242b39;*/
+}
+
+@media (min-width: 768px) {
+    :root {
+        --size: 1500;
+    }
+}
+.b-r-1{border-radius:var(--b-r-1)}
+.bg-c-1{background-color: var(--c-o-1, var(--c-1));}
+.bg-c-2{background-color:var(--c-2);}
+.bg-c-3{background-color:var(--c-3);}
+.bg-c-4{background-color:var(--c-4);}
+.bg-c-5{background-color:var(--c-5);}
+.bg-c-6{background-color:var(--c-6);}
+.bg-c-99{background-color:var(--c-99);}
+.bg-c-100{background-color:var(--c-100);}
+.bg-t{background-color:var(--bg-t) !important;}
+.c-99{color:var(--c-99)}
+.c-100{color:var(--c-100)}
+
+.s-u-l{  --s: 1px;
+    background: linear-gradient(90deg, var(--c-2) 50%, #0000 0) calc(100% - var(--_p, 0%)) / 200% 100%, linear-gradient(var(--c-2) 0 0) 0 100% / var(--_p, 0) var(--s) no-repeat;
+    -webkit-background-clip: text, padding-box;
+    background-clip: text, padding-box;
+    padding-bottom: var(--s);
+    position: relative;
+    transition: .5s;
+    z-index: 9;
+    width: max-content;
+    --_p: 100%;}

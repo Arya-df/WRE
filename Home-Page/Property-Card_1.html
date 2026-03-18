@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+     <link rel="stylesheet" type="text/css" href="https://www.theagencyre.com/theme/us/site_1/css/max/common.css" />
+     <link rel="stylesheet" type="text/css" href="../common-file.css" />
+     <link rel="stylesheet" type="text/css" href="https://www.theagencyre.com/theme/us/site_1/css/max/card.css" />
+     <link rel="stylesheet" type="text/css" href="https://www.vyllahome.com/theme/us/site_1/css/VLA/helper.css" />
+     <link rel="stylesheet" type="text/css" href="https://unpkg.com/ibp-max@3.1.15/agorafont.css" />
+
+      <script type="text/javascript" src="https://www.theagencyre.com/js/max/common.js" defer></script>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title> Property Card</title>
+    <style>
+       
+     
+.property.style-1 .bed-bath{border-right: 1px solid #777777;padding-right: 30px;margin-right: 30px;}
+.property.style-1 .p-badge .l-type{border: 0 !important;}
+.property.style-1 .p-badge {top:5px;left: 5px;}
+.property.style-1 .bed-bath,.property.style-1 .sqft{gap:12px}
+.property.style-1 figure.p-img-con::after { content: "";position: absolute;inset: 0;background: radial-gradient(  circle at bottom right, rgba(0, 0, 0, 0.6), transparent 60% );border-radius: inherit;}
+.property.style-1 figure.p-img-con .full{z-index: 9;}
+
+  
+        
+    </style>
+</head>
+<body>
+
+
+    <!-- <article  ag-c="3/3 4/4 8/8 12/12 16/16" class="property-card p-0 s-d-f s-f-fd-c s-p-r">       
+        <div class="luxury-badge s-p-a s-tt-u">Luxury</div>
+    </article> -->
+    <section ag-r ag-c="3/3 4/4 8/8 12/12 16/16" class="s-f-jc-c s-f-ai-c">
+
+    <article ag-c="3/3 4/4 4/8 4/12 4/16" class="s-d-f s-f-fd-c  m-8 p-0 s-p-r xs-b-w  property style-1 " style="xbackground-color: #5f9ea02e;">
+   
+    <figure class="p-img-con s-w-100 s-p-r m-b-16 b-r-1">
+        <img loading="lazy" class="a-r-5 s-w-100 s-of-cv s-d-b b-r-1 "  data-ratio="27:14" data-crop="" alt="View More About ..." src="https://cdn.datafloat.com/AGY_PUBLIC/MLSPhotos/MRBCMN/TA0516_1.jpg">
+        <div class="full s-p-a s-w-a s-b-0 s-r-0 ">
+            <span data-agora-icon="&#xe93f" aria-label="Full View" role="button" tabindex="0" onclick="openImageGallery(this)" data-rt="{{RT}}" data-mk="{{MlsNumber}}" data-photocount="{{PhotoCount}}" class="ca-f-b-1 s-d-b s-c-p s-br-2 m-b-8 c-99 s-d-n" title="Full View"></span>
+            <input type="hidden" data-save-listing="{{RT}}{{PK}}_{{IsFavourite}}" />
+            <span data-agora-icon="&#xe922" role="button" aria-label="Favourite" data-non-sold="" id="favourite-{{Key}}" href="javascript:void(0);" ag-l-k-title="[TOOLTIP_SAVE]" title="Save" class="ca-f-b-1 s-d-b s-c-p s-br-2 s-d-n c-99"></span>
+            <span data-agora-icon="&#xe923" role="button" aria-label="Save" data-non-sold="" id="save-{{Key}}" href="javascript:void(0);" data-perform-action="SaveListing" data-perform-action-url="pk={{PK}}&rt={{RT}}&mlsboard={{MlsBoard}}&mlsnumber={{MlsNumber}}" title="Favorite" class="ca-f-b-1 s-d-b s-c-p s-br-2 c-99"></span>
+
+        </div>
+    </figure>
+    <span class="f-s-3 f-w-5 s-tt-u c-100 s-f m-tb-8 s-d-b s-u-l "  >Active</span>
+    <span class="f-s-7 f-w-5 c-10 p-f s-d-b m-b-8 m-t-4 "  >$12,661,029</span>
+    <h2 class="t-h-2 f-w-4 m-t-4 m-b-12 s-w-100  s-to-e s-o-h s-ws-nw" >3814 NE 89th Street Seattle, WA 98115</h2>
+    
+    <a href="/test" title="View More About ... " class="s-d-b s-w-100 s-h-100 s-p-a ca-l s-bi-lg">3814 NE 89th Street Seattle, WA 98115</a>
+    
+    <i class="s-fst-n s-ff-s-2 s-w-100 bbs s-d-f m-tb-8 ">
+        <span data-value="7" class=" m-r-16 s-d-f s-f-fd-c s-tt-u bed-bath">
+            <span data-value="7" data-plural="s" class="f-s-1 f-w-6">Beds</span>
+            <b class="f-s-6">7</b>
+            <!-- <span data-value="7" data-plural="">Bed</span>  -->
+            
+        </span>
+
+        <span data-value="7" class=" m-r-16 s-d-f s-f-fd-c s-tt-u bed-bath">
+            <span data-value="7" class="f-s-1 f-w-6" data-plural="s">Baths</span>
+            <b class="f-s-6">7</b>
+            <!-- <span data-value="7" data-plural="">Bath</span>  -->
+            
+        </span>
+
+        <span ag-l-m="" class="p-r-4 s-d-f s-f-fd-c s-tt-u f-s-6 f-w-6 sqft"><span class="f-s-1 f-w-6">Sqft</span> 1,254 </span>
+    </i>
+    <div class="s-d-f s-f-jc-sb s-f  m-tb-8 s-w-100">
+    <span class="f-s-2 s-d-i s-f  m-tb-8">MLS#:&nbsp;TA0516</span>
+    <span class="f-s-2 s-d-i s-f  m-tb-8" data-value="Single Family"><b class="">Single Family</b></span>
+</div>
+    <div class="s-d-f s-f-jc-sb s-f  m-tb-8 s-w-100">
+        <img  loading="lazy" alt="{{Property.Address}}" title="{{Property.Address}}" class="mls-logo p-r-8" src="https://cdn-cws.datafloat.com/IBP/images/mls/HAR.png" loading="lazy" />
+        <span class="f-s-2 s-d-i" >Listing courtesy of </span>
+    </div>
+
+    <div class="p-badge s-p-a  ">
+        <div class="">
+        <span class="l-type xs-d-n oh m-tb-4 f-s-1 s-f l-h-2 m-l-4 p-lr-8 s-d-ib bg-c-2 c-99 b-r-1 s-tt-u" ><i class="s-d-b s-fst-n" >Open House</i> <span aria-label="openhouse" class="ohd s-d-n" data-agora-icon="" id="open-home-count8367596" ></span></span>
+        <span class="l-type status m-tb-4 f-s-1 s-f l-h-2 m-l-4 s-d-ib p-lr-8 bg-c-1 c-99 b-r-1 s-tt-u" data-value="ACTIVE">ACTIVE</span>
+        <span class="pr s-d-n l-type m-tb-4 f-s-1 s-f l-h-2 m-l-4 s-d-ib p-lr-8 b-r-1 s-tt-u" data-value="$1,025,000"><i class="s-fst-n" data-agora-icon-right="" >Price Reduced </i>$1,025,000</span>
+        <span class="nl s-d-n l-type m-tb-4  f-s-1 s-f l-h-2 m-l-4 s-d-ib p-lr-8 b-r-1 s-tt-u" >New Listing</span>
+        <span class="el s-d-n l-type m-tb-4  f-s-1 s-f l-h-2 m-l-4 s-d-ib p-lr-8 b-r-1 s-tt-u" >Exclusive</span>
+        <span class="vt s-d-n l-type m-tb-4 f-s-1 s-f l-h-2 m-l-4 s-d-ib p-lr-8 b-r-1 s-tt-u" >Virtual Tour</span>
+        </div>
+    </div>
+  </article>
+</section>
+
+</body>
+</html>
