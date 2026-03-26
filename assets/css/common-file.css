@@ -28,7 +28,7 @@
  --f-s-11: max(35px,min(64px,4rem)); /* 64px */
  --f-s-12: max(40px, min(90px, 7rem));
  --body-font: max(16px,min(16px,1.6rem));
-  --general-font-size: 50px;
+--general-font-size: 50px;
  --sp: 0px;
   --size: 850;
 
@@ -66,10 +66,6 @@
  --l-h-4: 32px;
  --l-h-n: normal;
  --fixedheight: calc(100vh - 0px);
- --b-r-1: 4px;
- --b-r-2: 12px;
- --b-r-3: 24px;
-
 
  --header-bg: rgb(0,0,0);
  --opacity-header-1: 0.4;
@@ -86,6 +82,7 @@
 }
 .b-r-1{border-radius:var(--b-r-1)}
 .b-r-2{border-radius:var(--b-r-2)}
+.b-r-2{border-radius:var(--b-r-3)}
 .bg-c-1{background-color: var(--c-o-1, var(--c-1));}
 .bg-c-2{background-color:var(--c-2);}
 .bg-c-3{background-color:var(--c-3);}
