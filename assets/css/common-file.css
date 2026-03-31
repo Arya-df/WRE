@@ -103,7 +103,7 @@
 .p-30{padding: 30px;}
 .p-tb-30{padding-top: 30px;padding-bottom:30px;}
 
-.s-u-l{ --s: 1px;
+.s-u-l{ --s: 2px;
     padding-bottom: var(--s);
     position: relative;
     z-index: 9;
@@ -112,7 +112,6 @@
     background-clip: text, padding-box;
     transition: 0.5s;
 }
-
 .s-u-l:hover  {--_p: 100%}
 
 .ca-l {bottom: 0; color: hsla(0, 0%, 100%, .01); left: 0;}
@@ -131,5 +130,10 @@
 
 .btn-3{color: var(--c-7); border-radius: var(--b-r-1); text-decoration: none; display: inline-block; text-transform: uppercase; font-weight: var(--f-w-6); font-size: var(--f-s-2); padding-bottom: 6px; background-image: linear-gradient(var(--c-2), var(--c-2)); background-repeat: no-repeat; background-position: 0 85%; background-size: 0% 2px; transition: background-size 0.4s ease, background-color 0.3s ease, color 0.3s ease;}
 .btn-3:hover{background-color: transparent; color: var(--c-5); background-size: 100% 2px;}
+
+.btn-4 { color: var(--c-1);border: transparent; display: inline-block; font-size: var(--f-s-2); overflow: hidden; padding-right:10px; position: relative;font-weight: var(--f-w-6);text-transform: uppercase; }
+ .ani-aro::after {font-size: var(--f-s-2); font-weight: var(--f-w-6); transition: .4s cubic-bezier(.37, 0, .63, 1); margin-left: 15px !important;}
+ .ani-aro:hover::after { transform: translate3d(10px, 0, 0); }   
+        
 
 .line {height: 2px; background-color: var(--c-3); width: 100%; display: block;}
