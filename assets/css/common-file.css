@@ -80,6 +80,10 @@
 @media (min-width: 768px) {
     :root {--size: 1500;}
 }
+  html {
+    font-size: clamp(1px,18px,calc(10*100vw/390));
+    font-size: clamp(1px,18px,calc(10*100vw/var(--size)));
+}
 .b-r-1{border-radius:var(--b-r-1)}
 .b-r-2{border-radius:var(--b-r-2)}
 .b-r-3{border-radius:var(--b-r-3)}
