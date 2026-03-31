@@ -103,16 +103,17 @@
 .p-30{padding: 30px;}
 .p-tb-30{padding-top: 30px;padding-bottom:30px;}
 
-.s-u-l{  --s: 1px;
-    background: linear-gradient(90deg, var(--c-2) 50%, #0000 0) calc(100% - var(--_p, 0%)) / 200% 100%, linear-gradient(var(--c-2) 0 0) 0 100% / var(--_p, 0) var(--s) no-repeat;
-    -webkit-background-clip: text, padding-box;
-    background-clip: text, padding-box;
+.s-u-l{ --s: 1px;
     padding-bottom: var(--s);
     position: relative;
-    transition: .5s;
     z-index: 9;
-    width: max-content;
- --_p: 100%;}
+    background: linear-gradient(90deg, var(--c-2) 50%, #0000 0) calc(100% - var(--_p, 0%)) / 200% 100%, linear-gradient(var(--c-2) 0 0) 0% 100% / var(--_p, 0%) var(--s) no-repeat;
+    -webkit-background-clip: text, padding-box;
+    background-clip: text, padding-box;
+    transition: 0.5s;
+}
+
+.s-u-l:hover  {--_p: 100%}
 
 .ca-l {bottom: 0; color: hsla(0, 0%, 100%, .01); left: 0;}
 
