@@ -101,7 +101,12 @@
 .c-100{color:var(--c-100)}
 
 .p-30{padding: 30px;}
+.p-t-30{padding-top: 30px;}
+.p-b-30{padding-bottom: 30px;}
+.p-l-30{padding-left: 30px;}
+.p-r-30{padding-right: 30px;}
 .p-tb-30{padding-top: 30px;padding-bottom:30px;}
+.p-lr-30{padding-left: 30px;padding-right:30px;}
 
 .s-u-l{ --s: 2px;
     padding-bottom: var(--s);
@@ -117,7 +122,7 @@
 .ca-l {bottom: 0; color: hsla(0, 0%, 100%, .01); left: 0;}
 
 /* button */
-.btn-1 {background: var(--c-1); color: var(--c-99); border-radius: var(--b-r-1); box-sizing: border-box; display: inline-block; font-weight: var(--f-w-6); font-size: var(--f-s-1); overflow: hidden; padding: 14px 20px; position: relative; text-decoration: none; transition: all 0.3s ease-in-out; text-transform: uppercase;}
+.btn-1 {background: var(--c-1); color: var(--c-99); border-radius: var(--b-r-1); box-sizing: border-box; display: inline-block; font-weight: var(--f-w-6); font-size: var(--f-s-1); overflow: hidden; padding: 14px 20px; position: relative; text-decoration: none; transition: all 0.3s ease-in-out; text-transform: uppercase;width:max-content;}
 .btn-1:hover{background: var(--c-4);}
 .btn-1:active {transform: scale(0.95); background: var(--c-5); font-weight: var(--f-w-6);}
 .btn-2 {background: var(--bg-t); border: 1px solid var(--c-1); color: var(--c-1); font-weight: var(--f-w-6); border-radius: var(--b-r-1); box-sizing: border-box; display: inline-block; font-size: var(--f-s-1); overflow: hidden; padding: 14px 20px; position: relative; text-decoration: none; transition: all 0.3s ease-in-out; text-transform: uppercase;}
