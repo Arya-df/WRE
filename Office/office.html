@@ -3,46 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <link rel="stylesheet" href="/assets/css/main.css">
-       <script src="/assets/js/main.js" defer></script>
-        <style>
-        
-        .market img{aspect-ratio:92/45;}
-        .icn-rd{height: 42px; width: 42px; border-color: var(--c-2);}
-        .icn-rd::before {font-size: var(--f-s-6);}
-        
-       </style>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <script src="/assets/js/main.js" defer></script>
+    <style>
+
+    </style>
 </head>
 <body>
-       <section ag-r="" ag-c="3/3 4/4 8/8 12/12 16/16" class="s-m-a s-p-r p-lr-50 p-tb-50 g-50-p-lr-10 market">
-               
-        <article ag-c="3/3 4/4 4/8 4/12 5/16-1" class="s-p-r s-d-f s-f-fd-c ca-sl p-0 s-a-n br-1 b-r-2">
-            <figure class="s-o-h s-p-r ca-ol b-r-2 br-br-0 br-bl-0">
-                <img data-ratio="92 : 45" class="s-w-100 s-of-cv s-d-b" src="../assets/image/office/974d39213b1837b313e000acb6afaf8b7c8854d4.png" >
-            </figure>
-            <header ag-r="" ag-c="3/3 4/4 8/8 12/12 16/16" class="p-20 s-f-fg-1 bg-t">
-                <h3 class="t-h-2 m-t-0 s-w-100 f-w-6 c-1 s-tt-u">Seattle Downtown</h3>
-                <div ag-c="1/3-1 2/4 4/8 6/12 8/16" class="p-0 m-b-16 s-d-f s-f-fd-c s-f-jc-c br-r-1">
-                    <span class="s-d-b f-s-4">1234 Pike Street, Suite 100</span>
-                    <span class="s-d-b f-s-4">Seattle, WA</span>
-                </div>
-                <div ag-c="1/3-1 2/4 4/8 6/12 8/16" class="p-r-0 p-t-0 p-b-0 p-l-20 m-b-16 s-d-f s-f-fd-c s-f-jc-c">
-                    <span class="s-d-b f-s-4 f-w-6">Manager</span>
-                    <span class="s-d-b f-s-4">Sarah Mitchell</span>
-                </div>
-                <div ag-c="1/3-1 2/4 4/8 6/12 8/16" class="p-0 m-t-16 s-d-f s-f-fd-r">
-                    <span class="icn-rd br-1 s-br-50 s-d-f s-f-ai-c s-f-jc-c c-5 f-w-4 m-r-16" data-agora-icon="&#xe99e;"></span>
-                    <span class="icn-rd br-1 s-br-50 s-d-f s-f-ai-c s-f-jc-c c-5 f-w-4 m-r-16" data-agora-icon="&#xe99f;"></span>
-                    <span class="icn-rd br-1 s-br-50 s-d-f s-f-ai-c s-f-jc-c c-5 f-w-4 m-r-16" data-agora-icon="&#xe941;"></span>
-                </div>
-                <div ag-c="1/3-1 2/4 4/8 6/12 8/16" class="p-r-0 p-t-0 p-b-0 p-l-20 m-t-16 s-d-f s-f-fd-c s-f-jc-c br-l-1">
-                    <span class="s-d-b f-s-6 c-2 f-w-6">24</span>
-                    <span class="s-d-b f-s-4 s-tt-u">agents</span>
-                </div>        
-            </header>
-        </article>
 
-        
-    </section>
+<div id="office-search"></div>
+<div id="office-card"></div>
+<div id="connect"></div>
+<div id="footer"></div>
+
+<script>
+    function loadHTML(id, file) {
+  fetch(file)
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById(id).innerHTML = data;
+    });
+}
+
+loadHTML("office-search", "searchoffice.html");
+loadHTML("office-card", "office-card.html");
+loadHTML("connect", "../Home-Page/connect.html");
+loadHTML("footer", "../Home-Page/Footer_1.html");
+</script>
 </body>
 </html>

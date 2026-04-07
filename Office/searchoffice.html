@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <script src="/assets/js/main.js" defer></script>
+
+    <style>
+.custom-select {appearance: none;}
+.select-wrapper::after {content: "\e914";font-family: agorafonts !important;
+    speak: none;
+    font-size: var(--f-s-5);
+    color: var(--c-7);
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 1;
+    text-transform: none;
+    word-wrap: normal;
+    margin: 0 .2rem 0 0;
+    transform: translateY(-1px);
+    vertical-align: middle;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;}
+    </style>
+
+</head>
+
+<body>
+
+    <div class="p-50" ag-c="3/3 4/4 6/8 8/12 16/16" ag-r="">
+    
+        <div class="s-d-f s-f-ai-c p-0 m-b-16-s" ag-c="3/3 2/4 4/8 8/12 12/16">
+            <input type="text" class="bg-c-3 s-b-n p-16 b-r-1 m-r-8 l-h-1 m-r-0-s s-w-100"
+                placeholder="Search by address, city, neighborhood, or ZIP code">
+        </div>
+        <div class="s-d-f s-f-ai-c p-0" ag-c="3/3 2/4 4/8 4/12 4/16">
+            <div class="select-wrapper s-w-100 s-p-r m-r-8">
+                <select class="bg-c-3 c-7 s-b-n p-16 b-r-1 l-h-1 s-w-100 custom-select">
+                    <option class="c-7">All Regions</option>
+                    <option class="c-7">North Region</option>
+                    <option class="c-7">South Region</option>
+                    <option class="c-7">East Region</option>
+                    <option class="c-7">West Region</option>
+                </select>
+            </div>
+        
+            <span class="bg-c-1 c-3 p-12 b-r-1 f-s-5" title="Property Search" data-agora-icon-right="&#xe924;">
+            </span>
+        
+        </div>
+    
+    </div>
+</body>
+
+</html>

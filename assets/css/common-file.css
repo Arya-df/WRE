@@ -108,6 +108,14 @@
 .p-tb-30{padding-top: 30px;padding-bottom:30px;}
 .p-lr-30{padding-left: 30px;padding-right:30px;}
 
+@media screen and (max-width:576px) {
+    .m-b-8-s{margin-bottom: 8px;}
+    .m-b-12-s{margin-bottom: 12px;}
+    .m-b-14-s{margin-bottom: 14px;}
+    .m-b-16-s{margin-bottom: 16px;}
+    .m-b-20-s{margin-bottom: 20px;}
+}
+
 .s-u-l{ --s: 2px;
     padding-bottom: var(--s);
     position: relative;
