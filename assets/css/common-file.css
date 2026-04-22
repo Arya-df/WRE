@@ -156,6 +156,11 @@
 .btn-3{color: var(--c-7 ); border: transparent; display: inline-block; font-size: var(--f-s-2); overflow: hidden; position: relative;font-weight: var(--f-w-6);text-transform: uppercase;}
 
 .btn-4 { color: var(--c-1);border: transparent; display: inline-block; font-size: var(--f-s-2); overflow: hidden; padding-right:10px; position: relative;font-weight: var(--f-w-6);text-transform: uppercase; }
+
+.btn-5 {background: var(--bg-t); border: 1px solid var(--c-6); color: var(--c-1); font-weight: var(--f-w-6); border-radius: var(--b-r-1); box-sizing: border-box; display: inline-block; font-size: var(--f-s-1); overflow: hidden; padding: 14px 20px; position: relative; text-decoration: none; transition: all 0.3s ease-in-out; text-transform: uppercase;}
+.btn-5:hover{border-color: var(--c-2);}
+.btn-5:active {transform: scale(0.95); background: var(--c-6); font-weight: var(--f-w-6);}
+
 .ani-aro::after {font-size: var(--f-s-2); font-weight: var(--f-w-6); transition: .4s cubic-bezier(.37, 0, .63, 1); margin-left: 15px !important;}
 .ani-aro:hover::after { transform: translate3d(10px, 0, 0); }   
         

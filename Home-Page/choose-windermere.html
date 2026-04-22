@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <script src="/assets/js/main.js" defer></script>
+    <style>
+        /*             
+.acc-item input {
+    display: none;
+}
+
+
+.summary {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 16px 0;
+    font-weight: 600;
+}
+
+
+.summary::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-right: 2px solid #0d3557;
+    border-bottom: 2px solid #0d3557;
+    transform: rotate(45deg);
+    transition: 0.3s;
+}
+
+
+.acc-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+
+.acc-item input:checked + .summary::after {
+    transform: rotate(-135deg);
+}
+
+.acc-item input:checked + .summary + .acc-content {
+    max-height: 150px;
+}
+     */
+        /* .acc-con {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.item-acc-c:has(>.item-acc-i) {
+   
+    max-height: inherit !important;
+
+}
+
+.item-acc-i {
+    pointer-events: all;
+}
+
+.item-acc .acc-con {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+} */
+    </style>
+</head>
+
+<body>
+    <section ag-r="" ag-c="3/3 4/4 8/8 12/12 12/16" class="s-m-a">
+        <!-- <article>
+        
+            <div class="acc-item">
+                <input type="checkbox" id="acc1">
+                <label for="acc1" class="summary">
+                    We value relationships over transactions
+                </label>
+                <div class="acc-content">Content here...</div>
+            </div>
+        
+            <div class="acc-item">
+                <input type="checkbox" id="acc2">
+                <label for="acc2" class="summary">
+                    We help build our local communities
+                </label>
+                <div class="acc-content">Content here...</div>
+            </div>
+        
+            <div class="acc-item">
+                <input type="checkbox" id="acc3">
+                <label for="acc3" class="summary">
+                    Our complete services make the process easier
+                </label>
+                <div class="acc-content">Content here...</div>
+            </div>
+        
+        </article> -->
+
+
+
+
+        <section ag-r ag-c="3/3 4/4 8/8 12/12 16/16" class=" p-tb-50 p-lr-100 g-50-p-tb-10 g-100-p-lr-10 ">
+
+            <div class="item-acc" ag-c="3/3 4/4 4/8 4/12 16/16">
+
+                <div class="item-acc-c">
+
+                    <span class="item-acc-i" data-agora-icon-right="&#xe917;">Accordion Item 1 </span>
+
+                    <p>
+
+                        This is the description for Accordion Item 1. This is the description for Accordion Item 1. This
+                        is the
+                        description for Accordion Item 1. This is the description for Accordion Item 1.
+                        This is the description for Accordion Item 1. This is the description for Accordion Item 1. This
+                        is the
+                        description for Accordion Item 1. This is the description for Accordion Item 1.
+
+                    </p>
+
+                </div>
+
+                <div class="item-acc-c">
+
+                    <span class="item-acc-i " data-agora-icon-right="&#xe917;">Accordion Item 2 </span>
+
+                    <p>
+
+                        This is the description for Accordion Item 1. This is the description for Accordion Item 1. This
+                        is the
+                        description for Accordion Item 1. This is the description for Accordion Item 1.
+                        This is the description for Accordion Item 1. This is the description for Accordion Item 1. This
+                        is the
+                        description for Accordion Item 1. This is the description for Accordion Item 1.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+    </section>
+
+
+    <script>
+        function AccordionFn() {
+
+
+            document.querySelectorAll(".item-acc-i").forEach((accitem) => {
+
+
+                const accordionItemBody = accitem.closest(".item-acc-c");
+
+                if (accitem.classList.contains("open")) {
+
+                    accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight + "px";
+
+                }
+
+
+                accitem.addEventListener("click", () => {
+
+                    accitem.classList.toggle("open");
+
+                    const accordionmainBody = accitem.closest(".item-acc");
+
+
+                    if (accordionmainBody.hasAttribute("autoclose")) {
+
+                        document.querySelectorAll(".item-acc-i").forEach((accitemAll) => {
+
+                            accitemAll.classList.remove("open");
+
+                            accitemAll.closest(".item-acc-c").style.maxHeight = document.querySelector(".item-acc-i").offsetHeight + "px";
+
+                        });
+
+
+                        accitem.classList.add("open");
+
+                        accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight + "px";
+
+                    }
+
+                    if (accitem.classList.contains("open")) {
+
+                        accordionItemBody.style.maxHeight = accordionItemBody.scrollHeight + "px";
+
+                    }
+
+                    else if (!accitem.classList.contains("open")) {
+
+                        accordionItemBody.style.maxHeight = document.querySelector(".item-acc-i").offsetHeight + "px";
+
+                    }
+
+
+                });
+
+            });
+
+        }
+
+
+
+        window.onresize = window.onload = function () {
+            AccordionFn();
+        }
+    </script>
+
+
+    <!-- <script>
+function AccordionFn() {
+
+    document.querySelectorAll(".item-acc-i").forEach((item) => {
+
+        const content = item.nextElementSibling; // ✅ correct element
+
+        // initial state
+        if (item.classList.contains("open")) {
+            content.style.maxHeight = content.scrollHeight + "px";
+        } else {
+            content.style.maxHeight = "0px";
+        }
+
+        item.addEventListener("click", () => {
+
+            item.classList.toggle("open");
+
+            if (item.classList.contains("open")) {
+                content.style.maxHeight = content.scrollHeight + "px";
+            } else {
+                content.style.maxHeight = "0px"; // ✅ proper close
+            }
+
+        });
+
+    });
+
+}
+
+window.onload = AccordionFn;
+window.onresize = AccordionFn;
+</script> -->
+
+
+
+</body>
+
+</html>
