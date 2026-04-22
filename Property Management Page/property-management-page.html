@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,11 +9,32 @@
 
     </style>
 </head>
-
 <body>
 
-    <div>pending</div>
+<div id="priority"></div>
+<div id="provide"></div>
+<div id="innovative"></div>
+<div id="more"></div>
+<div id="searching"></div>
+<div id="property-management-button"></div>
+<div id="footer"></div>
 
+<script>
+    function loadHTML(id, file) {
+  fetch(file)
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById(id).innerHTML = data;
+    });
+}
+
+loadHTML("priority", "priority.html");
+loadHTML("provide", "provide.html");
+loadHTML("innovative", "innovative.html");
+loadHTML("more", "more.html");
+loadHTML("searching", "searching.html");
+loadHTML("property-management-button", "property-management-button.html");
+loadHTML("footer", "../home-page/Footer_1.html");
+</script>
 </body>
-
 </html>
