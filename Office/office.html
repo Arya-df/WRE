@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <script src="/assets/js/main.js" defer></script>
+    <style>
+
+    </style>
+</head>
+<body>
+
+<div id="office-search"></div>
+<div id="office-card"></div>
+<div id="connect"></div>
+<div id="footer"></div>
+
+<script>
+    function loadHTML(id, file) {
+  fetch(file)
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById(id).innerHTML = data;
+    });
+}
+
+loadHTML("office-search", "searchoffice.html");
+loadHTML("office-card", "office-card.html");
+loadHTML("connect", "../Home-Page/connect.html");
+loadHTML("footer", "../Home-Page/Footer_1.html");
+</script>
+</body>
+</html>

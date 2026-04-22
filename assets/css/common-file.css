@@ -2,6 +2,11 @@
 :root {            
  --c-1: #002A4E;
  --c-2: #009CDE;
+ --c-3: #F2F2F2 ;
+ --c-4: #00213D;
+ --c-5: #000F1B;
+ --c-6: #BBBCBC;
+ --c-7: #707372;
  --c-99: #FFFFFF;
  --c-100: #000000;
  --text-grey: #777777;
@@ -23,6 +28,10 @@
  --f-s-11: max(35px,min(64px,4rem)); /* 64px */
  --f-s-12: max(40px, min(90px, 7rem));
  --body-font: max(16px,min(16px,1.6rem));
+--general-font-size: 50px;
+ --sp: 0px;
+  --size: 850;
+
  --f-w-1: 100;
  --f-w-2: 200;
  --f-w-3: 300;
@@ -34,8 +43,7 @@
  --f-w-n: normal;
  --txt-t: transparent;
  --bg-t: transparent;    
- --general-font-size: 50px;
- --sp: 0px;
+
  --l-h-1: 20px;
  --l-h-2: 24px;
  --l-h-3: 28px;
@@ -43,13 +51,26 @@
  --l-h-n: normal;
  --fixedheight: calc(100vh - 0px);
  --b-r-1: 4px;
- --b-r-2: 12px;
- --b-r-3: 24px;
- --size: 850;
+--b-r-2: 8px;
+--b-r-3: 12px;
+
 
  --header-bg: rgb(0,0,0);
  --opacity-header-1: 0.4;
  --opacity-header-2: 1;
+
+
+ --l-h-1: 20px;
+ --l-h-2: 24px;
+ --l-h-3: 28px;
+ --l-h-4: 32px;
+ --l-h-n: normal;
+ --fixedheight: calc(100vh - 0px);
+
+ --header-bg: rgb(0,0,0);
+ --opacity-header-1: 0.4;
+ --opacity-header-2: 1;
+
 
  --agent-overlay: rgba(0, 0, 0, 0.4);
  --map-background: #ffffff;
@@ -59,26 +80,94 @@
 @media (min-width: 768px) {
     :root {--size: 1500;}
 }
+  html {
+    font-size: clamp(1px,18px,calc(10*100vw/390));
+    font-size: clamp(1px,18px,calc(10*100vw/var(--size)));
+}
 .b-r-1{border-radius:var(--b-r-1)}
+.b-r-2{border-radius:var(--b-r-2)}
+.b-r-3{border-radius:var(--b-r-3)}
 .bg-c-1{background-color: var(--c-o-1, var(--c-1));}
 .bg-c-2{background-color:var(--c-2);}
 .bg-c-3{background-color:var(--c-3);}
 .bg-c-4{background-color:var(--c-4);}
 .bg-c-5{background-color:var(--c-5);}
 .bg-c-6{background-color:var(--c-6);}
+.bg-c-7{background-color:var(--c-7);}
 .bg-c-99{background-color:var(--c-99);}
 .bg-c-100{background-color:var(--c-100);}
 .bg-t{background-color:var(--bg-t) !important;}
 .c-99{color:var(--c-99)}
 .c-100{color:var(--c-100)}
 
-.s-u-l{  --s: 1px;
-    background: linear-gradient(90deg, var(--c-2) 50%, #0000 0) calc(100% - var(--_p, 0%)) / 200% 100%, linear-gradient(var(--c-2) 0 0) 0 100% / var(--_p, 0) var(--s) no-repeat;
-    -webkit-background-clip: text, padding-box;
-    background-clip: text, padding-box;
+.p-30{padding: 30px;}
+.p-t-30{padding-top: 30px;}
+.p-b-30{padding-bottom: 30px;}
+.p-l-30{padding-left: 30px;}
+.p-r-30{padding-right: 30px;}
+.p-tb-30{padding-top: 30px;padding-bottom:30px;}
+.p-lr-30{padding-left: 30px;padding-right:30px;}
+
+.m-20 {margin: 20px !important;}
+.m-l-20 {margin-left: 20px !important;}
+.m-r-20 {margin-right: 20px !important;}
+.m-t-20 {margin-top: 20px;}
+.m-b-20 {margin-bottom: 20px;}
+
+.m-30 {margin: 30px !important;}
+.m-l-30 {margin-left: 30px !important;}
+.m-r-30 {margin-right: 30px !important;}
+.m-t-30 {margin-top: 30px;}
+.m-b-30 {margin-bottom: 30px;}
+
+@media screen and (max-width:576px) {
+    .m-b-8-s{margin-bottom: 8px;}
+    .m-b-12-s{margin-bottom: 12px;}
+    .m-b-14-s{margin-bottom: 14px;}
+    .m-b-16-s{margin-bottom: 16px;}
+    .m-b-20-s{margin-bottom: 20px;}
+}
+
+.s-u-l{ --s: 2px;
     padding-bottom: var(--s);
     position: relative;
-    transition: .5s;
     z-index: 9;
-    width: max-content;
-    --_p: 100%;}
+    background: linear-gradient(90deg, var(--c-2) 50%, #0000 0) calc(100% - var(--_p, 0%)) / 200% 100%, linear-gradient(var(--c-2) 0 0) 0% 100% / var(--_p, 0%) var(--s) no-repeat;
+    -webkit-background-clip: text, padding-box;
+    background-clip: text, padding-box;
+    transition: 0.5s;
+}
+.s-u-l:hover  {--_p: 100%}
+
+.ca-l {bottom: 0; color: hsla(0, 0%, 100%, .01); left: 0;}
+
+/* button */
+.btn-1 {background: var(--c-1); color: var(--c-99); border-radius: var(--b-r-1); box-sizing: border-box; display: inline-block; font-weight: var(--f-w-6); font-size: var(--f-s-1); overflow: hidden; padding: 14px 20px; position: relative; text-decoration: none; transition: all 0.3s ease-in-out; text-transform: uppercase;width:max-content;}
+.btn-1:hover{background: var(--c-4);}
+.btn-1:active {transform: scale(0.95); background: var(--c-5); font-weight: var(--f-w-6);}
+.btn-2 {background: var(--bg-t); border: 1px solid var(--c-1); color: var(--c-1); font-weight: var(--f-w-6); border-radius: var(--b-r-1); box-sizing: border-box; display: inline-block; font-size: var(--f-s-1); overflow: hidden; padding: 14px 20px; position: relative; text-decoration: none; transition: all 0.3s ease-in-out; text-transform: uppercase;}
+.btn-2:hover{background: var(--c-3);}
+.btn-2:active {transform: scale(0.95); background: var(--c-6); font-weight: var(--f-w-6);}
+
+.input-1 {background: var(--c-3); color: var(--c-6); border: 1px solid var(--c-3); border-radius: var(--b-r-1); box-sizing: border-box; display: inline-block; font-weight: var(--f-w-6); font-size: var(--f-s-1); padding: 14px 20px; border: none; outline: none; transition: all 0.3s ease-in-out;}
+.input-1:hover {background: var(--bg-t); border: 1px solid var(--c-6);}
+.input-1:focus {background: var(--bg-t); border: 1px solid var(--c-1); transform: scale(1.02);}
+
+.btn-3{color: var(--c-7 ); border: transparent; display: inline-block; font-size: var(--f-s-2); overflow: hidden; position: relative;font-weight: var(--f-w-6);text-transform: uppercase;}
+
+.btn-4 { color: var(--c-1);border: transparent; display: inline-block; font-size: var(--f-s-2); overflow: hidden; padding-right:10px; position: relative;font-weight: var(--f-w-6);text-transform: uppercase; }
+.ani-aro::after {font-size: var(--f-s-2); font-weight: var(--f-w-6); transition: .4s cubic-bezier(.37, 0, .63, 1); margin-left: 15px !important;}
+.ani-aro:hover::after { transform: translate3d(10px, 0, 0); }   
+        
+.br-1{border: 1px solid var(--c-6);}
+.br-r-1{border-right: 1px solid var(--c-6);}
+.br-l-1{border-left: 1px solid var(--c-6);}
+.br-t-1{border-top: 1px solid var(--c-6);}
+.br-b-1{border-bottom: 1px solid var(--c-6);}
+
+.br-tr-0{border-top-right-radius: 0;}
+.br-bl-0{border-bottom-left-radius: 0;}
+.br-tl-0{border-top-left-radius: 0;}
+.br-br-0{border-bottom-right-radius: 0;}
+
+.line::after {content: ""; display: block; position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; background-color: var(--c-3);}
