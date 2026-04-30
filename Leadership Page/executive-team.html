@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <script src="/assets/js/main.js" defer></script>
+    <style>
+        .aftr::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10%;
+            height: 2px;
+            background-color: var(--c-2);
+            top: 40px;
+        }
+
+        .more-text {
+            max-height: 0;
+            overflow: hidden;
+            transition: 0.3s ease;
+        }
+
+        #toggle-more {
+            display: none;
+        }
+
+        #toggle-more:checked~.more-text {
+            max-height: 600px;
+        }
+
+        .more-btn::after {
+            content: "MORE";
+            color: #ff5a00;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        #toggle-more:checked~.more-btn::after {
+            content: "LESS";
+        }
+
+        .im-pf {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="s-m-a line s-p-r s-d-f s-f-fd-c p-tb-50" ag-r="" ag-c="3/3 4/4 8/8 12/12 12/16">
+        <div ag-c="3/3 4/4 4/8 4/12 4/16">
+            <figure class="p-0 s-o-h s-br-50 im-pf s-m-a"><img title="Brooks Burton" data-ratio="1 : 1"
+                    src="../assets/image/Leadership Page/WSC-headshot-Burton-Brooks-300x300.jpg" alt="Brooks Burton"
+                    class="s-w-100 s-h-100 s-of-cv"></figure>
+
+            <div>
+                <h2 class="f-s-6 f-w-6 c-1 s-d-b m-0 s-tt-c p-t-20 s-w-100 s-ta-c s-head">Brooks Burton</h2>
+                <span class="f-s-4 f-w-6 c-7 s-d-ib s-p-r p-t-8 p-b-0 s-tt-u aftr s-w-100 s-ta-c s-head">CHIEF OPERATING
+                    OFFICER</span>
+
+                <p class="f-s-4 f-w-5 p-t-8 m-b-0">
+                    Brooks Burton is the Chief Operating Officer for Windermere Services Company.
+                </p>
+
+                <input type="checkbox" id="toggle-more">
+
+                <p class="more-text m-0 f-s-4 f-w-5">
+                    He is responsible for overseeing daily operations, driving strategic initiatives,
+                    and ensuring organizational efficiency across all departments.
+                </p>
+
+                <label for="toggle-more" class="more-btn f-w-5 f-s-4 s-d-f s-f-jc-c s-f-ai-c"></label>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
