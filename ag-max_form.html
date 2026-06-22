@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.theagencyre.com/theme/us/site_1/css/max/common.css">
+    <link rel="stylesheet" href="https://www.vyllahome.com/theme/us/site_1/css/vLA/helper.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ibp-max@3.1.24/ag.css"> -->
+    <link rel="stylesheet" href="https://www.vyllahome.com/theme/us/site_1/css/VLA/form.css">
+    <link rel="stylesheet" href="../assets/css/common-file.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Create User</title>
+    <style>
+:root {
+    --c-1: #c0392b;
+    --c-2: #2c2c2c;
+    --c-3: #f5f5f5;
+    --c-4: #888;
+    --c-5: #555;
+    --c-6: #333;
+    --c-7: #e0e0e0;
+    --c-8: #999;
+    --c-9: #bbb;
+    --c-10: #1a1a1a;
+    --c-11: #444;
+    --c-99: #ffffff;
+    --p-f: 'Montserrat', sans-serif;
+    --s-f: "Roboto", sans-serif;
+     --f-s-0: max(11px,min(11px,.7rem)); /* 11px */
+  --f-s-1: max(12px,min(12px,.8rem)); /* 12px */
+  --f-s-2: max(14px,min(14px,1.2rem)); /* 14px */
+  --f-s-3: max(16px,min(16px,1.6rem)); /* 16px */
+  --f-s-4: max(18px,min(18px,1.8rem)); /* 18px */
+  --f-s-5: max(20px,min(20px,2rem)); /* 20px */
+  --f-s-6: max(20px,min(24px,2.2rem)); /* 24px */
+  --f-s-7: max(25px,min(34px,3.4rem)); /* 34px */
+  --f-s-8: max(30px,min(40px,3.7rem)); /* 40px */
+  --f-s-9: max(35px,min(50px,4rem)); /* 50px */
+  --f-s-10: max(40px,min(70px,5.5rem)); /* 70px */
+  --f-s-11: max(35px,min(64px,4rem)); /* 64px */
+  --f-s-12: max(40px, min(90px, 7rem));
+  --body-font: max(16px,min(16px,1.6rem));
+  --f-w-1: 100;
+  --f-w-2: 200;
+  --f-w-3: 300;
+  --f-w-4: 400;
+  --f-w-5: 500;
+  --f-w-6: 600;
+  --f-w-7: 700;
+  --f-w-b: bold;
+  --f-w-n: normal;
+  
+
+  
+  --txt-t: transparent;
+  --bg-t: transparent;    
+
+  --bu-c-1: var(--c-1);
+  --bu-c-2: var(--c-2);
+  --bu-c-99: var(--c-99);
+  --bu-c-100: var(--c-100);
+
+  --bu-bg-c-1: var(--c-1);
+  --bu-bg-c-2: var(--c-2);
+  --bu-bg-c-99: var(--c-99);
+  --bu-bg-c-100: var(--c-100);
+   
+  --blg-bg: var(--c-5);
+
+  --general-font-size: 50px;
+  --sp: 0px;
+  --l-h-1: 20px;
+  --l-h-2: 24px;
+  --l-h-3: 28px;
+  --l-h-4: 32px;
+  --l-h-n: normal;
+  --fixedheight: calc(100vh - 0px);
+  --b-r-1: 4px;
+  --b-r-2: 12px;
+  --b-r-3: 24px;
+  --size: 850;
+
+  --header-bg: rgb(0,0,0);
+  --opacity-header-1: 0.4;
+  --opacity-header-2: 1;
+
+  --agent-overlay: rgba(0, 0, 0, 0.4);
+  --map-background: #ffffff;
+  /*--avm-bg: #242b39;*/
+}
+@media (min-width: 768px) {
+    :root {
+        --size: 1500;
+    }
+}
+html {
+    font-size: clamp(1px,18px,calc(10*100vw/390));
+    font-size: clamp(1px,18px,calc(10*100vw/var(--size)));
+}
+body, p, a, strong {font-size: var(--body-font)}
+.bg-c-1{background-color: var(--c-o-1, var(--c-1));}
+.bg-c-2{background-color:var(--c-2);}
+.bg-c-3{background-color:var(--c-3);}
+.bg-c-4{background-color:var(--c-4);}
+.bg-c-5{background-color:var(--c-5);}
+.bg-c-6{background-color:var(--c-6);}
+.bg-c-99{background-color:var(--c-99);}
+.bg-c-100{background-color:var(--c-100);}
+.bg-t{background-color:var(--bg-t) !important;}
+
+.blg-bg{background-color: var(--blg-bg)}
+
+.f-c-1{color: var(--c-o-1, var(--c-1));}
+.f-c-2{color:var(--c-2);}
+.f-c-3{color:var(--c-3);}
+.f-c-4{color:var(--c-4);}
+.f-c-5{color:var(--c-5);}
+.f-c-6{color:var(--c-6);}
+.f-c-99{color:var(--c-99) !important;}
+.f-c-100{color:var(--c-100) !important;}
+
+.bu-c-1{color: var(--c-o-1, var(--c-1));}
+.bu-c-2{color:var(--c-2);}
+.bu-c-3{color:var(--c-3);}
+.bu-c-3{color:var(--c-4);}
+.bu-c-3{color:var(--c-5);}
+.bu-c-3{color:var(--c-6);}
+.bu-c-99{color:var(--c-99);}
+.bu-c-100{color:var(--c-100);}
+/* Card & header */
+.form-card{background:#fff; box-shadow:0 2px 28px rgba(0,0,0,.10);max-width:940px; margin:36px auto;}
+.form-head{background:var(--c-10); padding:36px 50px 28px;position:relative; overflow:hidden;}
+.form-head::before{content:''; position:absolute; top:-40px; right:-40px;width:150px; height:150px; border-radius:50%;background:rgba(192,57,43,.2);}
+.form-head h1{font-family:var(--s-f); color:#fff; font-size:var(--f-s-7);margin:0 0 6px; font-weight:300; letter-spacing:1px;position:relative; z-index:1;}
+.form-head p{color:rgba(255,255,255,.5); font-size:var(--f-s-2);margin:0; position:relative; z-index:1;}
+
+/* Progress steps */
+.step-bar{display:flex; align-items:flex-start;padding:28px 50px 0;}
+.step-item{flex:1; display:flex; flex-direction:column;align-items:center; position:relative;}
+.step-item:not(:last-child)::after{content:''; position:absolute; top:13px; left:50%;width:100%; height:2px; background:var(--c-7); z-index:0;}
+.step-item.done:not(:last-child)::after,
+.step-item.active:not(:last-child)::after{background:var(--c-1);}
+.step-dot{width:26px; height:26px; border-radius:50%;background:var(--c-3); border:2px solid var(--c-7);display:flex; align-items:center; justify-content:center;font-size:var(--f-s-1); font-weight:700; color:var(--c-9);position:relative; z-index:1; transition:all .3s;}
+.step-item.active .step-dot{background:var(--c-1); border-color:var(--c-1); color:#fff;}
+.step-item.done .step-dot{background:#27ae60; border-color:#27ae60; color:#fff;}
+.step-name{font-size:10px; font-weight:600; color:var(--c-9);margin-top:5px; text-transform:uppercase; letter-spacing:.4px;}
+.step-item.active .step-name{color:var(--c-1);}
+
+
+/* Group label (above radio / checkbox / toggle) */
+.grp-label{font-size:var(--f-s-1); font-weight:var(--f-w-4); color: var(--c-2);text-transform:uppercase; letter-spacing:.6px; display:block;}
+
+/* Avatar upload */
+.avatar-upload-area{gap:10px; padding:8px 0 16px;}
+.avatar-circle{width:100px; height:100px; border-radius:50%;border:2px solid #aeaeae; overflow:hidden;background:var(--c-3); display:flex; align-items:center;justify-content:center; cursor:pointer; position:relative; transition:border-color .2s;}
+.avatar-circle:hover{border-color:var(--c-1);}
+.avatar-circle img{width:100%; height:100%; object-fit:cover; display:none;}
+.avatar-circle svg{opacity:.35;}
+.avatar-circle::after{content:'change'; position: absolute;inset: 0;border-radius: 50%;background: rgba(192,57,43,.7);display: flex;align-items: center;justify-content: center;color:var(--c-99);font-size: var(--f-s-1);font-weight: 600;opacity:0;transition: opacity .2s;}
+.avatar-circle:hover::after{opacity:1;}
+.avatar-upload-area .av-btn{font-size:var(--f-s-2); color:var(--c-1); font-weight:500;cursor:pointer; text-decoration:underline;background:none; border:none; font-family:inherit;}
+.avatar-upload-area .av-hint{font-size:var(--f-s-1); color:#757575;}
+#avatarFileInput{display:none;}
+
+/* Radio group */
+.radio-grp{gap:6px 20px;}
+.radio-grp label{display:inline-flex!important;align-items: center; gap: 8px;font-size:var(--f-s-3)!important;font-weight:var(--f-w-4);color:#444; cursor:pointer;}
+.radio-grp label:before{display: none!important;}
+.radio-grp input[type="radio"]{accent-color: var(--c-1);width: 15px;height: 15px;cursor: pointer;flex-shrink: 0;}
+
+/* Checkbox group */
+.chk-grp{gap: 6px 20px;}
+.chk-grp label{display: inline-flex !important;align-items: center;gap: 8px;font-size: var(--f-s-3) !important;font-weight: var(--f-w-4);color: #444;cursor: pointer;}
+.chk-grp label:before{display: none !important;}
+.chk-grp input[type="checkbox"]{accent-color: var(--c-1);width: 15px;height: 15px;cursor: pointer;flex-shrink: 0;}
+
+/* Toggle switch */
+.toggle-row{gap: 8px;}
+.toggle-sw{position: relative;display: inline-block;width: 40px;height: 22px;}
+.toggle-sw input{opacity:0;width:0; height:0;}
+.toggle-track{position:absolute;inset:0; background:#ccc;border-radius:22px; cursor:pointer; transition:.3s;}
+.toggle-track:before{content:'';position: absolute;width: 16px;height: 16px;left: 3px;bottom: 3px;background:#fff;border-radius:50%;transition:.3s;}
+.toggle-sw input:checked + .toggle-track{background: var(--c-1);}
+.toggle-sw input:checked + .toggle-track:before{transform: translateX(18px);}
+.toggle-lbl{font-size: var(--f-s-3);color:#444;font-weight: var(--f-w-4);}
+
+/* Range slider */
+input[type="range"]{accent-color: var(--c-1);width: 100%;background: var(--c-7);border-radius: 3px;outline: none;cursor: pointer;margin: 0;border: none;display: block;}
+input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none; width:16px; height:16px; border-radius:50%;background:var(--c-1); border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.2); cursor:pointer;}
+
+/* File drop zone */
+.file-drop{border:1.5px dashed #aeaeae;border-radius: 3px;padding: 20px 12px;text-align: center;cursor: pointer;transition: border-color .2s;position: relative;margin-top: 8px;}
+.file-drop:hover{border-color: var(--c-1);}
+.file-drop input[type="file"]{position: absolute;inset: 0;opacity: 0;cursor: pointer;width: 100%;height: 100%;}
+.file-drop .fd-icon{font-size:24px; display:block; margin-bottom:4px;}
+.file-drop .fd-text{font-size: var(--f-s-2); color: #757575; margin:0;}
+.file-drop .fd-text span{color: var(--c-1); font-weight: 600; text-decoration: underline;}
+.file-drop .fd-hint{font-size: var(--f-s-1); color: #757575; margin: 4px 0 0;}
+
+/* Colour picker row */
+.color-row{gap: 8px;}
+input[type="color"]{-webkit-appearance: none;appearance: none;width: 30px;height: 30px;border: none;background: none;cursor: pointer;padding: 0;border-radius: 50%;overflow: hidden;box-shadow: 0 4px 12px rgba(0, 0, 0, .08);}
+.color-row > span{font-size:var(--f-s-3); color:#888;}
+
+/* Native date / time */
+input[type="date"], input[type="time"]{border:none; border-bottom:1px solid #aeaeae;background:transparent; width:100%; padding:12px 0;font-size:var(--f-s-3); font-family:var(--s-f);color:#000; outline:none; display:block;}
+.action-btn{gap:12px;}
+
+/* selected option */
+.label-sel:has(.item-select) [value=""]{color: rgba(0,0,0,0.5);}
+
+/* input Error Message start*/
+.error-msg{display: inline-block;visibility: hidden;color: #B00020;font-size: 11px;margin-top: 4px;}
+.item-text:invalid:not(:placeholder-shown) ~ .error-msg,.item-text:invalid:focus ~ .error-msg {visibility: visible;}
+.item-text:invalid:placeholder-shown ~ .error-msg::before{content: "This field is required. ";}
+.item-text:invalid:not(:placeholder-shown) ~ .error-msg::before{content: "Invalid format. ";}
+.item-text:invalid:not(:placeholder-shown),
+.item-text:invalid:focus{border-bottom: 1px solid #B00020 !important;outline: none;}
+label:has(.item-text:invalid:not(:placeholder-shown)),
+label:has(.item-text:invalid:focus){color: #B00020 !important;}
+/* input Error Message start*/
+
+/* Responsive */
+@media (max-width:767px){
+    .form-head{padding:24px 20px;}
+    .step-bar{padding:20px 16px 0;}
+}
+
+    </style>
+</head>
+<body>
+<div class="form-card">
+    <div class="form-head">
+        <h1>Create User Account</h1>
+        <p>Fill in the details below to register a new user</p>
+    </div>
+
+    <!-- ══ Progress Steps ══ -->
+    <!-- <div class="step-bar">
+        <div class="step-item done">
+            <div class="step-dot">✓</div>
+            <span class="step-name">Profile</span>
+        </div>
+        <div class="step-item active">
+            <div class="step-dot">2</div>
+            <span class="step-name">Details</span>
+        </div>
+        <div class="step-item">
+            <div class="step-dot">3</div>
+            <span class="step-name">Access</span>
+        </div>
+        <div class="step-item">
+            <div class="step-dot">4</div>
+            <span class="step-name">Confirm</span>
+        </div>
+    </div> -->
+
+    <div ag-r="" ag-c="3/3 4/4 8/8 12/12 16/16" class="p-50 g-100-p-20 form-content s-m-a">
+        <h2 class="t-h-1 m-b-16 m-t-0 s-tt-c f-w-n s-w-100 s-ta-l h-c-1 f-s-6">Profile Photo</h2>
+        <div ag-r="" ag-c="3/3 4/4 8/8 12/12 16/16" class="s-f-ai-c">
+            <div ag-c="3/3 4/4 8/8 3/12 4/16" class="s-d-f s-f-fd-c s-f-ai-c avatar-upload-area">
+                <div class="avatar-circle" onclick="document.getElementById('avatarFileInput').click()">
+                    <svg width="36" height="36" viewBox="0 0 40 40" fill="none">
+                        <circle cx="20" cy="15" r="8" stroke="#bbb" stroke-width="2"/>
+                        <path d="M4 36c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="#bbb" stroke-width="2"/>
+                    </svg>
+                    <img id="avatarPreviewImg" alt="Avatar">
+                    <!-- <div class="av-overlay">Change</div> -->
+                </div>
+                <input type="file" id="avatarFileInput" accept="image/*" aria-label="Upload Profile Photo"
+                        name="ProfilePhoto" formnode="true" entity="Lead" node="ProfilePhoto"
+                        onchange="previewAvatar(this)">
+                <button class="av-btn" type="button"
+                        onclick="document.getElementById('avatarFileInput').click()">Upload Photo</button>
+                <span class="av-hint">JPG, PNG · Max 2MB</span>
+            </div>
+            <div ag-r="" ag-c="3/3 4/4 8/8 9/12 10/16">
+                <label ag-c="3/3 4/4 8/8 6/12 8/16" class="m-0 m-b-8"
+                        label-name="First Name" ag-l-k="INPUT_FIRSTNAME" ag-l-k-label-name="[INPUT_FIRSTNAME]">
+                    First Name
+                    <input class="item-text" type="text" id="fname" name="fname"
+                            placeholder="First Name" ag-l-k="INPUT_FIRSTNAME" ag-l-k-placeholder="[INPUT_FIRSTNAME]"
+                            required="required" formmessage="First name required"
+                            formnode="true" entity="Lead" node="FirstName" value="" pattern="^[A-Z][a-zA-Z]*$" >
+                            <span class="error-msg">Must start with a Capital letter (e.g. John)</span>
+                </label>
+                <label ag-c="3/3 4/4 8/8 6/12 8/16" class="m-0 m-b-8"
+                        label-name="Last Name" ag-l-k="INPUT_LASTNAME" ag-l-k-label-name="[INPUT_LASTNAME]">
+                    Last Name
+                    <input class="item-text" type="text" name="lname" id="lname"
+                            placeholder="Last Name" ag-l-k="INPUT_LASTNAME" ag-l-k-placeholder="[INPUT_LASTNAME]"
+                            required="required" formmessage="Last name required"
+                            formnode="true" entity="Lead" node="LastName" value="" pattern="^[A-Z][a-zA-Z]*$" >
+                            <span class="error-msg">Must start with a Capital letter (e.g. John)</span>
+                </label>
+                <label ag-c="3/3 4/4 8/8 12/12 16/16" class="m-0 m-b-8"
+                        label-name="Username" ag-l-k="INPUT_USERNAME" ag-l-k-label-name="[INPUT_USERNAME]">
+                    Username
+                    <input class="item-text" type="text" name="username" id="username"
+                            placeholder="Username" ag-l-k="INPUT_USERNAME" ag-l-k-placeholder="[INPUT_USERNAME]"
+                            formnode="true" entity="Lead" node="Username" value="">
+                </label>
+                <label ag-c="3/3 4/4 8/8 12/12 16/16" class="m-0 m-b-8"
+                        label-name="Job Title" ag-l-k="INPUT_JOBTITLE" ag-l-k-label-name="[INPUT_JOBTITLE]">
+                    Job Title
+                    <input class="item-text" type="text" name="jobtitle" id="jobtitle"
+                            placeholder="Job Title" ag-l-k="INPUT_JOBTITLE" ag-l-k-placeholder="[INPUT_JOBTITLE]"
+                            formnode="true" entity="Lead" node="JobTitle" value="">
+                </label>
+            </div>
+        </div>
+        <h2 class="t-h-1 m-b-16 m-t-0 s-tt-c f-w-n s-w-100 s-ta-l h-c-1 f-s-6">Contact Details</h2>
+        <div ag-r="" ag-c="3/3 4/4 8/8 12/12 16/16">
+            <label ag-c="3/3 4/4 8/8 6/12 8/16" class="m-0 m-b-8"
+                   label-name="Email" ag-l-k="INPUT_EMAIL" ag-l-k-label-name="[INPUT_EMAIL]">
+                Email
+                <input class="item-text" type="email" id="txtEmail" name="email"
+                       placeholder="Email" ag-l-k="INPUT_EMAIL" ag-l-k-placeholder="[INPUT_EMAIL]"
+                       required="required" formmessage="Please enter a valid email address"
+                       formnode="true" entity="Lead" node="Email" value="">
+                       <span class="error-msg">Please enter a valid email address</span>
+            </label>
+            <label ag-c="3/3 4/4 8/8 6/12 8/16" class="m-0 m-b-8"
+                   label-name="Phone Number" ag-l-k="INPUT_PHONENUMBER" ag-l-k-label-name="[INPUT_PHONENUMBER]">
+                Phone Number
+                <input class="item-text" type="tel" id="txtUcPhone" name="Phone"
+                       placeholder="Phone Number" ag-l-k="INPUT_PHONENUMBER" ag-l-k-placeholder="[INPUT_PHONENUMBER]" pattern="[\+]?[0-9\s]*"
+                       required="required" formmessage="Please enter a valid phone number"
+                       formnode="true" entity="Lead" node="MobilePhone" value="">
+                       <span class="error-msg">Please enter a valid phone number</span>
+            </label>
+            <label ag-c="3/3 4/4 8/8 6/12 8/16" class="m-0 m-b-8"
+                   label-name="Website URL" ag-l-k="INPUT_WEBSITE" ag-l-k-label-name="[INPUT_WEBSITE]">
+                Website URL
+                <input class="item-text" type="url" name="website" id="website"
+                       placeholder="Website URL" ag-l-k="INPUT_WEBSITE" ag-l-k-placeholder="[INPUT_WEBSITE]"
+                       formnode="true" entity="AdditionalInfo" node="Website" value="">
+                       <span class="error-msg">Please enter a valid website URL</span>
+            </label>
+            <label ag-c="3/3 4/4 8/8 6/12 8/16" class="label-sel m-0 m-b-8"
+                   for="timetocall" label-name="Best Time to Call (Optional)"
+                   ag-l-k="INPUT_TIME" ag-l-k-label-name="[INPUT_TIME]">
+                Best Time to Call (Optional)
+                <select id="timetocall" class="item-select s-d-b c-2" label="Best Time To Call" ag-l-k="INPUT_TIME" ag-l-k-placeholder="[INPUT_TIME]" formnode="true" entity="AdditionalInfo" node="TimetoCall" placeholder="Best Time to Call (Optional)">
+                    Best Time to Call (Optional)
+                    <option selected="" value="" ag-l-k="INPUT_TIME">Best Time to Call (Optional)</option>
+                    <option label="Any time" ag-l-k-label="[INPUT_OPTION_TIME_ANY]" value="Any time" ag-l-k="INPUT_OPTION_TIME_ANY">Any time</option>
+                    <option label="In the morning" ag-l-k-label="[INPUT_OPTION_TIME_MORNING]" value="In the morning" ag-l-k="INPUT_OPTION_TIME_MORNING">In the morning</option>
+                    <option label="In the afternoon" ag-l-k-label="[INPUT_OPTION_TIME_AFTERNOON]" value="In the afternoon" ag-l-k="INPUT_OPTION_TIME_AFTERNOON">In the afternoon</option>
+                    <option label="In the evening" ag-l-k-label="[INPUT_OPTION_TIME_EVENING]" value="In the evening" ag-l-k="INPUT_OPTION_TIME_EVENING">In the evening</option>
+                </select>
+            </label>
+            <label ag-c="3/3 4/4 8/8 8/12 10/16" class="m-0 m-b-8"
+                   label-name="Address (Optional)" ag-l-k="INPUT_ADDRESS" ag-l-k-label-name="[INPUT_ADDRESS]">
+                Address (Optional)
+                <input class="item-text" type="text" id="address" name="Address"
+                       placeholder="Address (Optional)" ag-l-k="INPUT_ADDRESS"
+                       formnode="true" entity="AdditionalInfo" node="Address" value="">
+            </label>
+            <label ag-c="3/3 4/4 8/8 4/12 6/16" class="label-sel m-0 m-b-8"
+                   for="country" label-name="Country"
+                   ag-l-k="INPUT_COUNTRY" ag-l-k-label-name="[INPUT_COUNTRY]">
+                Country
+                <select id="country" class="item-select s-d-b" label="Country" ag-l-k="INPUT_COUNTRY" ag-l-k-placeholder="[INPUT_COUNTRY]" formnode="true" entity="AdditionalInfo" node="Country">
+                    <option selected="" value="">Select Country</option>
+                    <option value="us">United States</option>
+                    <option value="uk">United Kingdom</option>
+                    <option value="ca">Canada</option>
+                    <option value="au">Australia</option>
+                    <option value="in">India</option>
+                    <option value="de">Germany</option>
+                    <option value="fr">France</option>
+                    <option value="other">Other</option>
+                </select>
+            </label>
+        </div>
+        <h2 class="t-h-1 m-b-16 m-t-0 s-tt-c f-w-n s-w-100 s-ta-l h-c-1 f-s-6">Personal Details</h2>
+        <div ag-r="" ag-c="3/3 4/4 8/8 12/12 16/16">
+            <label ag-c="3/3 4/4 8/8 6/12 6/16" class="m-0 m-b-8" label-name="Date of Birth" ag-l-k="INPUT_DOB" ag-l-k-label-name="[INPUT_DOB]">
+                <span class="grp-label">Date of Birth</span>
+                <input type="date" id="dob" name="dob" formnode="true" entity="Lead" node="DateOfBirth">
+            </label>
+            <label ag-c="3/3 4/4 8/8 6/12 6/16" class="m-0 m-b-8" label-name="Preferred Contact Time" ag-l-k="INPUT_PREFERRED_CONTACT_TIME" ag-l-k-label-name="[INPUT_PREFERRED_CONTACT_TIME]">
+                <span class="grp-label">Preferred Contact Time</span>
+                <input type="time" id="prefTime" name="prefTime" formnode="true" entity="AdditionalInfo" node="PreferredTime">
+            </label>
+            <!-- Gender — Radio -->
+            <div ag-c="3/3 4/4 8/8 12/12 16/16" class="m-0 m-b-8">
+                <span class="grp-label">Gender</span>
+                <div class="s-d-f s-f-fw-w p-tb-8 radio-grp">
+                    <label label-name="Male" ag-l-k="INPUT_GENDER_MALE" ag-l-k-label-name="[INPUT_GENDER_MALE]">
+                        <input type="radio" name="gender" value="male" formnode="true" entity="Lead" node="Gender"> 
+                        Male
+                    </label>
+                    <label label-name="Female" ag-l-k="INPUT_GENDER_FEMALE" ag-l-k-label-name="[INPUT_GENDER_FEMALE]">
+                        <input type="radio" name="gender" value="female" formnode="true" entity="Lead" node="Gender"> 
+                        Female
+                    </label>
+                    <label label-name="Non-binary" ag-l-k="INPUT_GENDER_NONBINARY" ag-l-k-label-name="[INPUT_GENDER_NONBINARY]">
+                        <input type="radio" name="gender" value="non-binary" formnode="true" entity="Lead" node="Gender"> 
+                        Non-binary
+                    </label>
+                    <label label-name="Prefer not to say" ag-l-k="INPUT_GENDER_PREFER_NOT" ag-l-k-label-name="[INPUT_GENDER_PREFER_NOT]">
+                        <input type="radio" name="gender" value="prefer-not" formnode="true" entity="Lead" node="Gender"> 
+                        Prefer not to say
+                    </label>
+                </div>
+            </div>
+            <label ag-c="3/3 4/4 8/8 12/12 16/16" class="m-0 m-b-8" for="bio" label-name="Bio / About">
+                Bio / About
+                <textarea class="item-text" id="bio" name="bio" rows="3" placeholder="Bio / About" ag-l-k="INPUT_BIO" ag-l-k-placeholder="[INPUT_BIO]" formnode="true" entity="Lead" node="Remarks"></textarea>
+            </label>
+            <label ag-c="3/3 4/4 8/8 6/12 8/16" class="m-0 m-b-8" label-name="Profile Accent Colour" ag-l-k="INPUT_ACCENT_COLOUR" ag-l-k-label-name="[INPUT_ACCENT_COLOUR]">
+                <span class="grp-label">Profile Accent Colour</span>
+                <div class="s-d-f s-f-ai-c p-tb-8 color-row">
+                    <input type="color" id="accentColor" value="#c0392b">
+                    <span>Choose your profile accent colour</span>
+                </div>
+            </label>
+            <label ag-c="3/3 4/4 8/8 6/12 8/16" class="m-0 m-b-8 range-field" label-name="Experience Level" ag-l-k="INPUT_EXPERIENCE" ag-l-k-label-name="[INPUT_EXPERIENCE]">
+                    <div class="s-d-f s-f-jc-sb m-b-12 range-top">
+                        <span class="grp-label">Experience Level</span>
+                        <span class="f-s-2 f-w-7 f-c-1 range-val" id="expVal">3 yrs</span>
+                    </div>
+                    <input type="range" min="0" max="20" value="3" id="expRange" name="experience" formnode="true" entity="AdditionalInfo" node="Experience"
+                           oninput="document.getElementById('expVal').textContent=this.value+' yrs'">
+            </label>
+        </div>
+        <h2 class="t-h-1 m-b-16 m-t-0 s-tt-c f-w-n s-w-100 s-ta-l h-c-1 f-s-6">Role &amp; Permissions</h2>
+        <div ag-r="" ag-c="3/3 4/4 8/8 12/12 16/16">
+            <div ag-c="3/3 4/4 8/8 6/12 8/16" class="m-0 m-b-8">
+                <span class="grp-label">User Role</span>
+                <div class="s-d-f s-f-fw-w s-f-fd-c p-tb-8 radio-grp">
+                    <label label-name="Admin" ag-l-k="INPUT_ROLE_ADMIN" ag-l-k-label-name="[INPUT_ROLE_ADMIN]">
+                        <input type="radio" name="role" value="admin" formnode="true" entity="AdditionalInfo" node="UserRole"> 
+                        Admin
+                    </label>
+                    <label label-name="Editor" ag-l-k="INPUT_ROLE_EDITOR" ag-l-k-label-name="[INPUT_ROLE_EDITOR]">
+                        <input type="radio" name="role" value="editor" formnode="true" entity="AdditionalInfo" node="UserRole"> 
+                        Editor
+                    </label>
+                    <label label-name="Viewer" ag-l-k="INPUT_ROLE_VIEWER" ag-l-k-label-name="[INPUT_ROLE_VIEWER]">
+                        <input type="radio" name="role" value="viewer" checked formnode="true" entity="AdditionalInfo" node="UserRole"> 
+                        Viewer
+                    </label>
+                    <label label-name="Guest" ag-l-k="INPUT_ROLE_GUEST" ag-l-k-label-name="[INPUT_ROLE_GUEST]">
+                        <input type="radio" name="role" value="guest" formnode="true" entity="AdditionalInfo" node="UserRole"> 
+                        Guest
+                    </label>
+                </div>
+            </div>
+            <div ag-c="3/3 4/4 8/8 6/12 8/16" class="m-0 m-b-8">
+                <span class="grp-label">Module Access</span>
+                <div class="s-d-f s-f-fw-w s-f-fd-c p-tb-8 chk-grp">
+                    <label label-name="Dashboard" ag-l-k="INPUT_MODULE_DASHBOARD" ag-l-k-label-name="[INPUT_MODULE_DASHBOARD]">
+                        <input type="checkbox" name="module" value="dashboard" checked formnode="true" entity="AdditionalInfo" node="Modules"> 
+                        Dashboard
+                    </label>
+                    <label label-name="Reports" ag-l-k="INPUT_MODULE_REPORTS" ag-l-k-label-name="[INPUT_MODULE_REPORTS]">
+                        <input type="checkbox" name="module" value="reports" checked formnode="true" entity="AdditionalInfo" node="Modules"> 
+                        Reports
+                    </label>
+                    <label label-name="Billing" ag-l-k="INPUT_MODULE_BILLING" ag-l-k-label-name="[INPUT_MODULE_BILLING]">
+                        <input type="checkbox" name="module" value="billing" formnode="true" entity="AdditionalInfo" node="Modules"> 
+                        Billing
+                    </label>
+                    <label label-name="User Management" ag-l-k="INPUT_MODULE_USER_MANAGEMENT" ag-l-k-label-name="[INPUT_MODULE_USER_MANAGEMENT]">
+                        <input type="checkbox" name="module" value="users" formnode="true" entity="AdditionalInfo" node="Modules"> 
+                        User Management
+                    </label>
+                    <label label-name="API Access" ag-l-k="INPUT_MODULE_API_ACCESS" ag-l-k-label-name="[INPUT_MODULE_API_ACCESS]">
+                        <input type="checkbox" name="module" value="api" formnode="true" entity="AdditionalInfo" node="Modules"> 
+                        API Access
+                    </label>
+                </div>
+            </div>
+            <!-- Notification Prefs — Checkboxes horizontal -->
+            <div ag-c="3/3 4/4 8/8 12/12 16/16" class="m-0 m-b-8">
+                <span class="grp-label">Notification Preferences</span>
+                <div class="s-d-f s-f-fw-w p-tb-8 chk-grp">
+                    <label label-name="Email Alerts" ag-l-k="INPUT_NOTIF_EMAIL" ag-l-k-label-name="[INPUT_NOTIF_EMAIL]">
+                        <input type="checkbox" name="notif" value="email" checked formnode="true" entity="AdditionalInfo" node="Notifications"> 
+                        Email Alerts
+                    </label>
+                    <label label-name="SMS Alerts" ag-l-k="INPUT_NOTIF_SMS" ag-l-k-label-name="[INPUT_NOTIF_SMS]">
+                        <input type="checkbox" name="notif" value="sms" formnode="true" entity="AdditionalInfo" node="Notifications"> 
+                        SMS Alerts
+                    </label>
+                    <label label-name="Push Notifications" ag-l-k="INPUT_NOTIF_PUSH" ag-l-k-label-name="[INPUT_NOTIF_PUSH]">
+                        <input type="checkbox" name="notif" value="push" checked formnode="true" entity="AdditionalInfo" node="Notifications"> 
+                        Push Notifications
+                    </label>
+                    <label label-name="Weekly Digest" ag-l-k="INPUT_NOTIF_WEEKLY" ag-l-k-label-name="[INPUT_NOTIF_WEEKLY]">
+                        <input type="checkbox" name="notif" value="weekly" formnode="true" entity="AdditionalInfo" node="Notifications"> 
+                        Weekly Digest
+                    </label>
+                    <label label-name="Monthly Summary" ag-l-k="INPUT_NOTIF_MONTHLY" ag-l-k-label-name="[INPUT_NOTIF_MONTHLY]">
+                        <input type="checkbox" name="notif" value="monthly" formnode="true" entity="AdditionalInfo" node="Notifications">
+                        Monthly Summary
+                    </label>
+                </div>
+            </div>
+            <!-- Toggle switches -->
+            <div ag-c="3/3 4/4 8/8 6/12 8/16" class="m-0 m-b-8">
+                <span class="grp-label">Account Settings</span>
+                <div class="m-t-8">
+                    <div class="s-d-f s-f-ai-c p-tb-8 toggle-row">
+                        <label class="toggle-sw" aria-label="Account Active">
+                            <input type="checkbox" checked name="isActive" formnode="true" entity="AdditionalInfo" node="IsActive">
+                            <span class="toggle-track"></span>
+                        </label>
+                        <span class="toggle-lbl">Account Active</span>
+                    </div>
+                    <div class="s-d-f s-f-ai-c p-tb-8 toggle-row">
+                        <label class="toggle-sw" aria-label="Two-Factor Authentication">
+                            <input type="checkbox" name="twoFA" formnode="true" entity="AdditionalInfo" node="TwoFA">
+                            <span class="toggle-track"></span>
+                        </label>
+                        <span class="toggle-lbl">Two-Factor Authentication</span>
+                    </div>
+                    <div class="s-d-f s-f-ai-c p-tb-8 toggle-row">
+                        <label class="toggle-sw" aria-label="Public Profile Visible" >
+                            <input type="checkbox" checked name="publicProfile" formnode="true" entity="AdditionalInfo" node="PublicProfile">
+                            <span class="toggle-track"></span>
+                        </label>
+                        <span class="toggle-lbl">Public Profile Visible</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Document / ID upload -->
+            <div ag-c="3/3 4/4 8/8 6/12 8/16" class="m-0 m-b-8">
+                <span class="grp-label">Upload Document / ID</span>
+                <label class="file-drop" aria-label="Upload Document / ID">
+                    <input type="file" accept=".pdf,.doc,.docx,image/*"
+                           name="document" formnode="true" entity="AdditionalInfo" node="DocumentFile">
+                    <span class="fd-icon">📎</span>
+                    <p class="fd-text"><span>Click to upload</span> or drag &amp; drop</p>
+                    <p class="fd-hint">PDF, DOC, JPG, PNG · Max 10MB</p>
+                </label>
+            </div>
+
+        </div>
+        <div class="acknowledgement-policy s-d-f">
+            <label for="Consent" aria-label="Consent Statement">
+                <input title="Consent" class="m-r-8 s-f-as-fs" type="checkbox" id="Consent" node="Consent" required>
+            </label>
+            <span class="consent-statement m-b-16 f-s-2" ag-l-k="FORM_CONSENT">
+                By creating this account, you understand that you are providing express written consent to the
+                terms and conditions of this platform, including the processing of your personal data in
+                accordance with applicable privacy laws.
+                <a class="f-s-2 c-1 l-h" aria-label="View Terms and Conditions"
+                   role="link" href="#">Click here for Terms and Conditions</a>.
+            </span>
+        </div>
+        <!-- ══ Action Buttons ══ -->
+        <div class="s-w-100 s-d-f s-f-jc-fe s-f-fw-w m-t-8 action-btn">
+            <span role="button" aria-label="Cancel" class="a-b-2">Cancel</span>
+            <span role="button" aria-label="Create Account" data-reveal="1" class="a-b-1" data-request-submit="BUTTON_SUBMIT" ag-l-k="BUTTON_CREATE" consent-attached="true">Create Account</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    function previewAvatar(input) {
+        if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const img = document.getElementById('avatarPreviewImg');
+                img.src = e.target.result;
+                img.style.display = 'block';
+                img.parentElement.querySelector('svg').style.display = 'none';
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    /* Mark label-sel active when a select value is chosen */
+    document.querySelectorAll('.label-sel select').forEach(sel => {
+        sel.addEventListener('change', () => {
+            sel.closest('label').classList.toggle('active', !!sel.value);
+        });
+    });
+</script>
+
+</body>
+</html>
