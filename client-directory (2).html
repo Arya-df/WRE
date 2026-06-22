@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-design@latest/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ag-design@latest/agorafont.css">
+  <title>Client Directory</title>
+  <style>
+    .page-wrap, body{padding:32px 20px;}
+    .table-wrap{background:var(--c-99);border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.05),0 10px 15px -5px rgba(0,0,0,.05);}
+    @media(max-width:575px){
+      /* .page-wrap{padding:16px 10px;} */
+      .table-wrap{padding:12px;}
+  }
+
+    /* ============================================
+       TOOLBAR
+    ============================================ */
+    .tabs{background-color: #f1f3f5;border-radius:8px;gap:2px;}
+    .tab-item{color:#868e96;border-radius:6px;background:none;}
+    .tab-item.active{background-color: var(--c-99);color:#1a1d20;box-shadow:0 1px 2px rgba(0,0,0,.05);}
+    .search-w{position:relative;display:flex;align-items:center;}
+    .search-w input{padding:7px 36px 7px 32px;border:1px solid #dee2e6;border-radius:8px;font-size:13px;width:190px;background:#fdfdfd;outline:none;}
+    .search-w .si{position:absolute;left:10px;color:#adb5bd;font-size:14px;}
+    .search-w .kb{position:absolute;right:8px;font-size:11px;color:#adb5bd;border:1px solid #e9ecef;background:#fff;padding:1px 5px;border-radius:4px;}
+    .act-btn{display:flex;align-items:center;gap:5px;padding:7px 12px;border:1px solid #dee2e6;background:#fff;border-radius:8px;font-size:13px;font-weight:500;color:#1a1d20;cursor:pointer;}
+    @media(max-width:575px){.search-w input{width:130px;}}
+
+    /* ============================================
+       COLUMN TOGGLE (mobile only)
+    ============================================ */
+    .col-toggle{display:none;background:#f8f9fa;border:1px solid #e9ecef;border-radius:8px;padding:10px 14px;margin-bottom:14px;}
+    @media(max-width:767px){.col-toggle{display:block;}}
+    .col-toggle-title{font-size:11px;font-weight:600;color:#868e96;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;}
+    .col-toggle label{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:#495057;margin-right:14px;margin-bottom:4px;cursor:pointer;}
+    .col-toggle input[type=checkbox]{accent-color:#6366f1;width:14px;height:14px;cursor:pointer;}
+
+    /* ============================================
+       SHARED CELL STYLES
+    ============================================ */
+    .id-cell{display:flex;align-items:center;gap:10px;}
+    .av{width:32px;height:32px;border-radius:50%;object-fit:cover;flex-shrink:0;}
+    .ps{font-weight:500;font-size:13px;color:#1a1d20;}
+    .ss{font-size:11px;color:#868e96;margin-top:1px;}
+    .co-cell{display:flex;align-items:center;gap:7px;font-weight:500;font-size:13px;}
+    .co-logo{width:18px;height:18px;border-radius:3px;object-fit:contain;}
+    .pill{display:inline-flex;padding:3px 9px;border-radius:100px;font-size:11px;font-weight:500;}
+    .pill.active{background:#e6fcf5;color:#0ca678;}
+    .pill.inactive{background:#f1f3f5;color:#495057;}
+
+    /* ============================================
+       DESKTOP TABLE  (≥768px)
+       — full grid, no scroll
+    ============================================ */
+    /* hide mobile-only elements on desktop always */
+    .cell-actions { display: none; }
+    .mob-chk { display: none; }
+    .mob-arr { display: none; }
+    :root{--tbl-cols: 32px repeat(auto-fit, minmax(0,1fr)) 40px}
+
+    .tbl-head{
+      display:grid;
+      grid-template-columns: 32px repeat(var(--mid-cols), minmax(0,1fr)) 40px;
+      align-items:center;
+      padding:8px 12px;
+      background:#f8f9fa;
+      border-radius:8px;
+      font-size:12px;font-weight:600;color:#1a1d20;
+      margin-bottom:4px;
+    }
+    .cell-h{display:flex;align-items:center;gap:4px;}
+    .sort-i{font-size:11px;color:#adb5bd;}
+
+    .tbl-row{
+      display:grid;
+      grid-template-columns: 32px repeat(var(--mid-cols), minmax(0,1fr)) 40px;
+      align-items:center;
+      padding:10px 12px;
+      border-bottom:1px solid #f1f3f5;
+      font-size:13px;
+    }
+    .tbl-row:hover{background:#fafbfc;}
+    .tbl-row:last-child{border-bottom:none;}
+
+    /* 3-dot menu */
+    .menu-wrap{position:relative;text-align:right;}
+    .dots{color:#868e96;cursor:pointer;padding:3px 8px;border-radius:6px;font-size:18px;font-weight:bold;user-select:none;}
+    .dots:hover{background:#e9ecef;}
+    .drop{display:none;position:absolute;right:0;top:100%;z-index:100;min-width:120px;background:#fff;border:1px solid #dee2e6;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.08);padding:4px 0;text-align:left;}
+    .menu-wrap:hover .drop{display:block;}
+    .di{display:flex;align-items:center;gap:7px;padding:7px 12px;font-size:13px;color:#1a1d20;cursor:pointer;}
+    .di:hover{background:#f8f9fa;}
+    .di.del{color:#fa5252;}
+    .di.del:hover{background:#fff5f5;}
+
+    /* ============================================
+       MOBILE ACCORDION  (≤767px)
+       — completely separate display, NO scroll
+    ============================================ */
+    @media(max-width:767px){
+
+      /* kill desktop layout */
+      .tbl-head{display:none;}
+      /* re-enable mobile-only elements */
+      .mob-chk { display: inline-block; }
+      .mob-arr { display: inline; }
+
+      .tbl-row{
+        display:block;
+        padding:0;
+        border-bottom:1px solid #f1f3f5;
+        cursor:pointer;
+      }
+
+      /* hide ALL data cells by default on mobile */
+      .tbl-row .cell-chk,
+      .tbl-row .cell-title,
+      .tbl-row .cell-company,
+      .tbl-row .cell-type,
+      .tbl-row .cell-status,
+      .tbl-row .menu-wrap,
+      .tbl-row .cell-actions{
+        display:none;
+      }
+
+      /* always-visible trigger: checkbox + avatar + name + chevron */
+      .tbl-row .cell-client{
+        display:flex;
+        align-items:center;
+        gap:10px;
+        padding:12px;
+        width:100%;
+      }
+      .tbl-row .cell-client .id-cell{flex:1;min-width:0;}
+      .tbl-row .cell-client .id-cell > div{min-width:0;}
+      .tbl-row .cell-client .ps{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+      .tbl-row .mob-chk{flex-shrink:0;}
+      .tbl-row .mob-arr{
+        margin-left:auto;flex-shrink:0;
+        color:#adb5bd;font-size:20px;line-height:1;
+        transition:transform .22s ease;
+      }
+
+      /* OPEN — show detail fields and actions */
+      .tbl-row.open .mob-arr{transform:rotate(180deg);}
+
+      .tbl-row.open .cell-title,
+      .tbl-row.open .cell-company,
+      .tbl-row.open .cell-type,
+      .tbl-row.open .cell-status,
+      .tbl-row.open .cell-actions{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        padding:8px 12px;
+        border-top:1px solid #f8f9fa;
+        font-size:13px;
+        width:100%;
+      }
+      /* label prefix from data-label */
+      .tbl-row.open .cell-title::before,
+      .tbl-row.open .cell-company::before,
+      .tbl-row.open .cell-type::before,
+      .tbl-row.open .cell-status::before{
+        content:attr(data-label);
+        font-size:12px;font-weight:500;color:#868e96;flex-shrink:0;
+      }
+
+      /* action buttons row */
+      .tbl-row.open .cell-actions{
+        gap:8px;
+        padding:10px 12px 12px;
+        border-top:1px solid #f1f3f5;
+        justify-content:stretch;
+      }
+      .tbl-row.open .cell-actions::before{display:none;}
+      .cell-actions button{
+        flex:1;padding:8px;border:1px solid #dee2e6;
+        border-radius:8px;background:#fff;font-size:13px;cursor:pointer;color:#1a1d20;
+      }
+      .cell-actions .del-btn{color:#fa5252;border-color:#ffc9c9;}
+
+      /* col-hidden hides a detail field even when open */
+      .tbl-row.open .cell-title.col-hidden,
+      .tbl-row.open .cell-company.col-hidden,
+      .tbl-row.open .cell-type.col-hidden,
+      .tbl-row.open .cell-status.col-hidden{display:none !important;}
+    }
+.si[data-agora-icon], .sort-i[data-agora-icon], .dots[data-agora-icon]{display:inline-flex;align-items:center;justify-content:center;}
+[data-agora-icon]:before{font-size:16px;}
+.pg-btn[data-agora-icon]{justify-content:center;}
+    /* ============================================
+       PAGINATION
+    ============================================ */
+    .pg-ctrl{display:flex;align-items:center;border:1px solid #dee2e6;border-radius:8px;overflow:hidden;}
+    .pg-btn{padding:7px 11px;background:none;border:none;border-right:1px solid #dee2e6;cursor:pointer;color:#1a1d20;font-size:12px;display:flex;align-items:center;}
+    .pg-num{padding:7px 12px;background:none;border:none;border-right:1px solid #dee2e6;cursor:pointer;font-size:13px;font-weight:500;color:#868e96;}
+    .pg-num.cur{background:#f1f3f5;color:#1a1d20;}
+    .pg-btn:last-child,.pg-num:last-child{border-right:none;}
+    .rpp select{padding:6px 10px;border:1px solid #dee2e6;border-radius:8px;background:#fff;font-size:13px;color:#1a1d20;outline:none;}
+    @media(max-width:575px){
+      .pg-num:not(.cur):not(:first-child):not(:last-child){display:none;}
+    }
+  </style>
+</head>
+<body>
+
+    <div ag-c="3/3 4/4 8/8 12/12 16/16" class="p-20 s-o-h table-wrap">
+        <!-- TOOLBAR -->
+        <div class="s-d-f s-f-jc-sb s-f-ai-c m-b-12 p-0">
+            <div class="s-d-f p-4 tabs">
+                <button class="p-tb-8 p-lr-16 f-s-2 f-w-5 s-c-p s-b-n tab-item active">All</button>
+                <button class="p-tb-8 p-lr-16 f-s-2 f-w-5 s-c-p s-b-n tab-item">Active</button>
+                <button class="p-tb-8 p-lr-16 f-s-2 f-w-5 s-c-p s-b-n tab-item">Inactive</button>
+            </div>
+            <div class="p-0 s-d-f s-f-ai-c s-f-jc-fe s-f-fw-w" style="gap:8px;">
+                <div class="s-p-r s-d-f s-f-ai-c search-w" data-agora-icon="&#xe924;">
+                    <!-- <span class="si" data-agora-icon="&#xe924;"></span> -->
+                    <input type="text" placeholder="Search...">
+                    <!-- <span class="kb s-d-n-s">⌘K</span> -->
+                </div>
+                <button class="act-btn s-d-n-m" data-agora-icon="&#xe96d;">
+                    Filter
+                </button>
+                <button class="act-btn s-d-n-m" data-agora-icon="&#xe97a;">
+                    Sort by
+                </button>
+            </div>
+        </div>
+        <!-- MOBILE COLUMN TOGGLE -->
+        <div class="col-toggle">
+            <div class="col-toggle-title">Show columns</div>
+            <label>
+                <input type="checkbox" checked id="tog-title"> Title</label>
+            <label>
+                <input type="checkbox" checked id="tog-company"> Company</label>
+            <label>
+                <input type="checkbox" checked id="tog-type"> Contact Type</label>
+            <label>
+                <input type="checkbox" checked id="tog-status"> Status</label>
+        </div>
+
+        <!-- DESKTOP TABLE HEAD -->
+        <div class="tbl-head">
+            <div>
+                <input type="checkbox">
+            </div>
+            <div class="cell-h">Client <span class="sort-i" data-agora-icon="&#xe97a;"></span></div>
+            <div class="cell-h">Title <span class="sort-i" data-agora-icon="&#xe97a;"></span></div>
+            <div class="cell-h">Company <span class="sort-i" data-agora-icon="&#xe97a;"></span></div>
+            <div class="cell-h">Contact Type <span class="sort-i" data-agora-icon="&#xe97a;"></span></div>
+            <div class="cell-h">Status <span class="sort-i" data-agora-icon="&#xe97a;"></span></div>
+        </div>
+
+        <!-- ROW 1 -->
+        <div class="tbl-row">
+            <div class="cell-chk">
+                <input type="checkbox">
+            </div>
+            <div class="cell-client" data-col>
+                <input type="checkbox" class="mob-chk">
+                <div class="id-cell">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" class="av" alt="Brooklyn Simmons">
+                    <div>
+                        <div class="ps">Brooklyn Simmons</div>
+                        <div class="ss">brooklyn@gmail.com</div>
+                    </div>
+                </div>
+                <span class="mob-arr" data-agora-icon="&#xe914;"></span>
+            </div>
+            <div class="cell-title" data-col data-label="Title">Marketing Manager</div>
+            <div class="cell-company" data-col data-label="Company">
+                <span class="co-cell">
+              <img src="https://cdn-images-1.medium.com/max/1200/1*986Wn2w88FIn8g3vdbf_vA.png" class="co-logo" alt="Monday.com">
+              Monday.com</span>
+            </div>
+            <div class="cell-type" data-col data-label="Contact Type">Potential Customer</div>
+            <div class="cell-status" data-col data-label="Status"><span class="pill active">Active</span></div>
+            <div class="menu-wrap">
+                <div class="dots" data-agora-icon="&#xe92c;"></div>
+                <div class="drop">
+                    <div class="di" data-agora-icon="&#xe942;">
+                        View
+                    </div>
+
+                    <div class="di" data-agora-icon="&#xe910;">
+                        Edit
+                    </div>
+
+                    <div class="di del" data-agora-icon="&#xe9ac;">
+                        Delete
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="cell-actions"><button data-agora-icon="&#xe942;">View</button><button data-agora-icon="&#xe910;">Edit</button><button class="del-btn" data-agora-icon="&#xe9ac;">Delete</button>
+          </div> -->
+        </div>
+        <!-- FOOTER -->
+        <div ag-r class="s-f-ai-c m-t-16 p-0">
+            <div ag-c class="p-0" style="font-size:13px;color:#868e96;">Page 2 of 16</div>
+            <div ag-c class="p-0 s-d-f s-f-ai-c s-f-jc-fe s-f-fw-w" style="gap:10px;">
+                <div class="pg-ctrl">
+                    <button class="pg-btn" data-agora-icon="&#xf100;"></button>
+                    <button class="pg-btn" data-agora-icon="&#xe915;"></button>
+                    <button class="pg-num">1</button>
+                    <button class="pg-num cur">2</button>
+                    <button class="pg-num">3</button>
+                    <button class="pg-num">4</button>
+                    <button class="pg-num">5</button>
+                    <button class="pg-num" style="color:#ced4da;pointer-events:none;">...</button>
+                    <button class="pg-num">16</button>
+                    <button class="pg-btn" data-agora-icon="&#xe916;"></button>
+                    <button class="pg-btn" data-agora-icon="&#xf101;"></button>
+                </div>
+                <div class="rpp">
+                    <select>
+                        <option>7 / page</option>
+                        <option selected>10 / page</option>
+                        <option>25 / page</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+  (function() {
+    const source = document.querySelector('.tbl-row'); 
+    if (!source) return;
+     const cols = source.querySelectorAll('[data-col]').length;
+
+    document.documentElement.style.setProperty('--mid-cols', cols);
+  })();
+  /* ── Row accordion (mobile only) ── */
+  document.querySelectorAll('.tbl-row').forEach(function(row) {
+    row.querySelector('.cell-client').addEventListener('click', function(e) {
+      if (window.innerWidth > 767) return;
+      if (e.target.type === 'checkbox') return;
+      var isOpen = row.classList.contains('open');
+      document.querySelectorAll('.tbl-row.open').forEach(function(r) { r.classList.remove('open'); });
+      if (!isOpen) row.classList.add('open');
+    });
+  });
+
+  /* ── Column visibility toggle ── */
+  document.getElementById('tog-title').addEventListener('change', function() { toggleCol('cell-title', this.checked); });
+  document.getElementById('tog-company').addEventListener('change', function() { toggleCol('cell-company', this.checked); });
+  document.getElementById('tog-type').addEventListener('change', function() { toggleCol('cell-type', this.checked); });
+  document.getElementById('tog-status').addEventListener('change', function() { toggleCol('cell-status', this.checked); });
+
+  function toggleCol(cls, show) {
+    document.querySelectorAll('.' + cls).forEach(function(el) {
+      el.classList.toggle('col-hidden', !show);
+    });
+  }
+
+  /* ── Tab switching ── */
+  document.querySelectorAll('.tab-item').forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      document.querySelectorAll('.tab-item').forEach(function(t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
